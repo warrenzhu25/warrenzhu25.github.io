@@ -1,0 +1,33 @@
+---
+title: "Git FAQ"
+categories: Git 
+---
+## How to revert staged changes
+
+```
+git reset
+git reset fileName
+
+```
+
+## How to diff staged and tracked changes
+
+### Show what has been added to the index via git add but not yet committed.
+```
+git diff --staged
+```
+
+### Shows what has changed since the last commit.
+```
+git diff HEAD
+```
+
+### Show what has changed but hasn't been added to the index yet via git add.
+```
+git diff
+```
+
+### Shows what has changed since the commit before the latest commit
+``` 
+git diff HEAD^
+``` 
