@@ -1,94 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Warren&#8217;s Blog</title>
-  <meta name="author" content="Warren Zhu">
-
-  
-  <meta name="description" content="Cluster Redis cluster 101 automatically split your dataset among multiple nodes.
-continue operations when a subset of the nodes are experiencing &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><![CDATA[Warren's Blog]]></title>
+  <link href="http://warrenzhu25.github.io/atom.xml" rel="self"/>
+  <link href="http://warrenzhu25.github.io/"/>
+  <updated>2018-02-18T17:21:20+08:00</updated>
+  <id>http://warrenzhu25.github.io/</id>
+  <author>
+    <name><![CDATA[Warren Zhu]]></name>
+    <email><![CDATA[warren.zhu25@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <link rel="canonical" href="http://warrenzhu25.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Warren's Blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Warren&#8217;s Blog</a></h1>
-  
-    <h2>Thinking for living</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:warrenzhu25.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/redis-learning-notes/">Redis Learning Notes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-11-18T16:45:27+08:00'><span class='date'>2017 年11 月18 日</span> <span class='time'>4:45 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Cluster</h2>
+  <entry>
+    <title type="html"><![CDATA[Redis Learning Notes]]></title>
+    <link href="http://warrenzhu25.github.io/blog/redis-learning-notes/"/>
+    <updated>2017-11-18T16:45:27+08:00</updated>
+    <id>http://warrenzhu25.github.io/blog/redis-learning-notes</id>
+    <content type="html"><![CDATA[<h2>Cluster</h2>
 
 <h3>Redis cluster 101</h3>
 
@@ -307,35 +237,15 @@ continue operations when a subset of the nodes are experiencing &hellip;">
 <li>Slave don&rsquo;t expire keys, master send <strong>DEL</strong> after key expire</li>
 </ol>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/git-faq/">Git FAQ</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-11-18T16:45:27+08:00'><span class='date'>2017 年11 月18 日</span> <span class='time'>4:45 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>How to revert staged changes</h2>
+  <entry>
+    <title type="html"><![CDATA[Git FAQ]]></title>
+    <link href="http://warrenzhu25.github.io/blog/git-faq/"/>
+    <updated>2017-11-18T16:45:27+08:00</updated>
+    <id>http://warrenzhu25.github.io/blog/git-faq</id>
+    <content type="html"><![CDATA[<h2>How to revert staged changes</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -371,35 +281,15 @@ continue operations when a subset of the nodes are experiencing &hellip;">
 
 
 <p></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/%E4%B8%89%E8%AF%BBJava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/">三读java编程思想</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-11-06T00:00:00+08:00'><span class='date'>2014 年11 月6 日</span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>﻿&mdash;
+  <entry>
+    <title type="html"><![CDATA[三读java编程思想]]></title>
+    <link href="http://warrenzhu25.github.io/blog/%E4%B8%89%E8%AF%BBJava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    <updated>2014-11-06T00:00:00+08:00</updated>
+    <id>http://warrenzhu25.github.io/blog/三读Java编程思想</id>
+    <content type="html"><![CDATA[<p>﻿&mdash;
 title: &ldquo;三读Java编程思想&rdquo;</p>
 
 <h2>categories: Reading </h2>
@@ -461,76 +351,7 @@ title: &ldquo;三读Java编程思想&rdquo;</p>
 <p>相信读者读到这里，应该已经能够理解我为什么读三遍《Java编程思想》。如果您读完此文，决定读一下《Java编程思想》；如果您读完此文，决定好书以后要读三遍，我知足矣。</p></li>
 </ol>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/redis-learning-notes/">Redis Learning Notes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/git-faq/">Git FAQ</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/%E4%B8%89%E8%AF%BBJava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/">三读java编程思想</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2018 - Warren Zhu -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

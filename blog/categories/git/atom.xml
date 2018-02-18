@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Git | Warren's Blog]]></title>
+  <link href="http://warrenzhu25.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://warrenzhu25.github.io/"/>
+  <updated>2018-02-18T17:21:20+08:00</updated>
+  <id>http://warrenzhu25.github.io/</id>
+  <author>
+    <name><![CDATA[Warren Zhu]]></name>
+    <email><![CDATA[warren.zhu25@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git FAQ]]></title>
+    <link href="http://warrenzhu25.github.io/blog/git-faq/"/>
+    <updated>2017-11-18T16:45:27+08:00</updated>
+    <id>http://warrenzhu25.github.io/blog/git-faq</id>
+    <content type="html"><![CDATA[<h2>How to revert staged changes</h2>
+
+<pre><code>git reset
+git reset fileName
+</code></pre>
+
+<h2>How to diff staged and tracked changes</h2>
+
+<h3>Show what has been added to the index via git add but not yet committed.</h3>
+
+<pre><code>git diff --staged
+</code></pre>
+
+<h3>Shows what has changed since the last commit.</h3>
+
+<pre><code>git diff HEAD
+</code></pre>
+
+<h3>Show what has changed but hasn&rsquo;t been added to the index yet via git add.</h3>
+
+<pre><code>git diff
+</code></pre>
+
+<h3>Shows what has changed since the commit before the latest commit</h3>
+
+<pre><code class="">git diff HEAD^
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

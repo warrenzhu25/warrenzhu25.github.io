@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Redis | Warren's Blog]]></title>
+  <link href="http://warrenzhu25.github.io/blog/categories/redis/atom.xml" rel="self"/>
+  <link href="http://warrenzhu25.github.io/"/>
+  <updated>2018-02-18T17:21:20+08:00</updated>
+  <id>http://warrenzhu25.github.io/</id>
+  <author>
+    <name><![CDATA[Warren Zhu]]></name>
+    <email><![CDATA[warren.zhu25@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Redis Learning Notes]]></title>
+    <link href="http://warrenzhu25.github.io/blog/redis-learning-notes/"/>
+    <updated>2017-11-18T16:45:27+08:00</updated>
+    <id>http://warrenzhu25.github.io/blog/redis-learning-notes</id>
+    <content type="html"><![CDATA[<h2>Cluster</h2>
+
+<h3>Redis cluster 101</h3>
+
+<ul>
+<li>automatically split your dataset among multiple nodes.</li>
+<li>continue operations when a subset of the nodes are experiencing failures</li>
+</ul>
+
+
+<h3>Data sharding</h3>
+
+<ul>
+<li>16384 total hash slots</li>
+<li>hash slot = CRC16(key) % 16384</li>
+<li>Every node is responsible subset of hash slots. Need manually assign.</li>
+<li>Use <strong>hash tag</strong> to keys to be the same hash slot. For example, <strong>this{foo}key</strong> and <strong>another{foo}key</strong></li>
+</ul>
+
+
+<h3>Master slave model</h3>
+
+<p>Slave will be promoted to the master if one master is down to keep cluster running.</p>
+
+<h3>Consistency guarantee</h3>
+
+<ul>
+<li><strong>No strong consistency</strong>. Cluster may lose writes acknowledged.</li>
+<li>Due to asynchronous replication, the slave which behind master might be promoted to be new master</li>
+</ul>
+
+
+<h3>How to config</h3>
+
+<pre><code>port 7000
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+appendonly yes
+</code></pre>
+
+<h3>Design goals</h3>
+
+<ol>
+<li>High performance and linear scalability up to 1000 nodes</li>
+<li>Acceptable degree of write safety: the system tries (in a best-effort way) to retain all the writes originating from clients connected with the majority of the master nodes.</li>
+<li>Availability: Redis Cluster is able to survive partitions where the majority of the master nodes are reachable and there is at least one reachable slave for every master node that is no longer reachable.</li>
+</ol>
+
+
+<h3>Eviction</h3>
+
+<h3>Eviction policies</h3>
+
+<ul>
+<li><strong>noeviction</strong>: return errors when the memory limit was reached and the client is trying to execute commands that could result in more memory to be used (most write commands, but DEL and a few more exceptions).</li>
+<li><strong>allkeys-lru</strong>: evict keys by trying to remove the less recently used (LRU) keys first, in order to make space for the new data added.</li>
+<li><strong>volatile-lru</strong>: evict keys by trying to remove the less recently used (LRU) keys first, but only among keys that have an expire set, in order to make space for the new data added.</li>
+<li><strong>allkeys-random</strong>: evict keys randomly in order to make space for the new data added.</li>
+<li><strong>volatile-random</strong>: evict keys randomly in order to make space for the new data added, but only evict keys with an expire set.</li>
+<li><strong>volatile-ttl</strong>: evict keys with an expire set, and try to evict keys with a shorter time to live (TTL) first, in order to make space for the new data added.</li>
+</ul>
+
+
+<h3>Approximated LRU algorithm</h3>
+
+<pre><code>maxmemory-samples 5
+</code></pre>
+
+<h2>Metrics</h2>
+
+<h3>Memory</h3>
+
+<ul>
+<li><strong>used_memory</strong>: total number of bytes allocated by Redis using its allocator (either standard libc, jemalloc, or an alternative allocator such as tcmalloc</li>
+<li><strong>used_memory_human</strong>: Human readable representation of previous value</li>
+<li><strong>used_memory_rss</strong>: Number of bytes that Redis allocated as seen by the operating system (a.k.a resident set size). This is the number reported by tools such as top(1) and ps(1).
+
+<ul>
+<li>rss >> used means fragmentation.</li>
+<li>used >> rss means part of memory swapped, expect significant latency</li>
+<li>Redis will not always free up (return) memory to the OS when keys are removed. So <strong>maxmemory</strong> should be based on peak memory usage. However allocators are abke to reuse free memory. Because of all this, fragmentation ratio is not reliable when peak memory >>> currently used memory.</li>
+</ul>
+</li>
+<li><strong>used_memory_peak</strong>: Peak memory consumed by Redis (in bytes)</li>
+<li><strong>used_memory_peak_human</strong>: Human readable representation of previous value</li>
+<li><strong>used_memory_lua</strong>: Number of bytes used by the Lua engine</li>
+<li><strong>mem_fragmentation_ratio</strong>: Ratio between used_memory_rss and used_memory</li>
+<li><strong>mem_allocator</strong>: Memory allocator, chosen at compile time</li>
+</ul>
+
+
+<h2>Persistency</h2>
+
+<h3>RDB: point-in-time snapshots of dataset at specified interval</h3>
+
+<h4>Pros</h4>
+
+<p>compact, good for disaster recovery, little performance overhead, faster restarts</p>
+
+<h4>Cons</h4>
+
+<p>certain data loss, fork() often. (AOF can tune rewrite fork frequency)</p>
+
+<h3>AOF: logs every write operation, that will be played again at server startup</h3>
+
+<h4>Pros</h4>
+
+<ul>
+<li>more durable, control fsync policy</li>
+<li>append-only file, no seek, no corruption, could be fixed</li>
+<li>rewrite big AOF in background</li>
+</ul>
+
+
+<h4>Cons</h4>
+
+<p>bigger than RDB, slower, less robust</p>
+
+<h4>What should I use</h4>
+
+<ul>
+<li>Use both if you want data safety like PostgreSQL</li>
+<li>Use RBD alone if you live with minutes of data loss</li>
+<li>Discourage to use AOF alone</li>
+</ul>
+
+
+<h4>How config RDB</h4>
+
+<p>Dump every 60 seconds if at least 1000 keys changed
+<code>
+save 60 1000
+</code></p>
+
+<h4>How RDB works</h4>
+
+<ol>
+<li>Redis forks. We now have a child and a parent process.</li>
+<li>The child starts to write the dataset to a temporary RDB file.</li>
+<li>When the child is done writing the new RDB file, it replaces the old one.</li>
+</ol>
+
+
+<h4>How enable AOF</h4>
+
+<pre><code>appendonly yes
+</code></pre>
+
+<h4>How AOF log rewritting works</h4>
+
+<ol>
+<li>Redis forks, so now we have a child and a parent process.</li>
+<li>The child starts writing the new AOF in a temporary file.</li>
+<li>The parent accumulates all the new changes in an in-memory buffer (but at the same time it writes the new changes in the old append-only file, so if the rewriting fails, we are safe).</li>
+<li>When the child is done rewriting the file, the parent gets a signal, and appends the in-memory buffer at the end of the file generated by the child.</li>
+<li>Profit! Now Redis atomically renames the old file into the new one, and starts appending new data into the new file.</li>
+</ol>
+
+
+<h4>How durable is the append only file?</h4>
+
+<ol>
+<li>fsync every time new command appended. Very very slow, very saft</li>
+<li>fsync every second. Fast enough.</li>
+<li>Never fsync, rely on OS. faster and less safer.</li>
+</ol>
+
+
+<h2>Replication</h2>
+
+<h3>Three main mechanism:</h3>
+
+<ol>
+<li>When master and slave are well-connected, master send a stream of commands.</li>
+<li>When link breaks, slave reconnects and proceeds with partial resynchronization: obtain part of stream of commands</li>
+<li>When partial resynchronization is impossible, slave ask for full resynchronization. Master send snapshot to slave, then send stream of commands.</li>
+</ol>
+
+
+<h3>Important facts</h3>
+
+<ul>
+<li>Asynchronous replication</li>
+<li>Replication is non-blocking on the master side.</li>
+<li>A master can have multiple slaves.</li>
+<li>Slave are able to accept connections from other slaves.</li>
+</ul>
+
+
+<h3>Allow writes only with N attached replicas</h3>
+
+<ul>
+<li>slaves ping the master every second, acknowledging the amount of replication stream processed.</li>
+<li>masters will remember the last time it received a ping from every slave.</li>
+<li>The user can configure a minimum number of slaves that have a lag not greater than a maximum number of seconds.</li>
+</ul>
+
+
+<pre><code>min-slaves-to-write &lt;number of slaves&gt;
+min-slaves-max-lag &lt;number of seconds&gt;
+</code></pre>
+
+<h3>How deal with expiration</h3>
+
+<ol>
+<li>Slave don&rsquo;t expire keys, master send <strong>DEL</strong> after key expire</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
