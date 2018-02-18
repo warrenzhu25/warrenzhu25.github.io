@@ -1,7 +1,11 @@
 ---
+layout: post
 title: "Git FAQ"
-categories: Git 
+date: 2017-11-18 16:45:27 +0800
+comments: true
+categories: Git
 ---
+
 ## How to revert staged changes
 
 ```

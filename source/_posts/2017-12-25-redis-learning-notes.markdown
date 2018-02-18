@@ -1,7 +1,11 @@
 ---
+layout: post
 title: "Redis Learning Notes"
 categories: Redis 
+date: 2017-11-18 16:45:27 +0800
+comments: true
 ---
+
 ## Cluster
 ### Redis cluster 101
 * automatically split your dataset among multiple nodes.
