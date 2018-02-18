@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://warrenzhu25.github.io/blog/The%20Art%20Of%20Readable%20Code%20Notes/</loc>
+    <lastmod>2014-11-07T00:00:00+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://warrenzhu25.github.io/blog/%E4%B8%89%E8%AF%BBJava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</loc>
+    <lastmod>2014-11-06T00:00:00+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://warrenzhu25.github.io/blog/archives/</loc>
+    <lastmod>2014-11-07T17:11:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://warrenzhu25.github.io/</loc>
+    <lastmod>2014-11-07T17:11:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

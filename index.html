@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Warren&#8217;s Blog</title>
+  <meta name="author" content="Warren Zhu">
+
+  
+  <meta name="description" content="﻿ 为什么读这本书 最近读到一本好书The Art Of Readable Code，之所以称之为好书，又如下几个原因： 改变你写程序的价值观。就是你认为应该怎么写程序，是写文学作品，还是写应用文，什么样的程序算是好的程序，只要运行结果正确就行了吗，还要考虑其他的。此书所关注的就是可读性（ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://warrenzhu25.github.io">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Warren's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Warren&#8217;s Blog</a></h1>
+  
+    <h2>Thinking for living</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:warrenzhu25.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/The%20Art%20Of%20Readable%20Code%20Notes/">The Art of Readable Code Notes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-07T00:00:00+08:00'><span class='date'>2014 年11 月7 日</span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>﻿</p>
+
+<h2>为什么读这本书</h2>
+
+<p>最近读到一本好书<a href="http://www.amazon.com/Art-Readable-Code-Theory-Practice/dp/0596802293/">The Art Of Readable Code</a>，之所以称之为好书，又如下几个原因：</p>
+
+<ol>
+<li><p><strong>改变你写程序的价值观。</strong>就是你认为应该怎么写程序，是写文学作品，还是写应用文，什么样的程序算是好的程序，只要运行结果正确就行了吗，还要考虑其他的。此书所关注的就是<strong>可读性（Readability）</strong>。</p></li>
+<li><p><strong>告诉你为什么程序要可读。</strong></p></li>
+<li><p><strong>教会你如何写出真正可读的程序。</strong>我们大家可能都知道可读，可是到底应该怎么写，到底什么样的算是可读，那可是相当主观的。</p></li>
+<li><p><strong>此书只有200页，可谓字字珠玑，都是干货。</strong>你读完它，会有相当高的投入产出比。我读了至少3遍，不然根本无法吸收全部精华，更不用说在此卖弄。不过，每次读，都有一种新的体验，很是享受。</p></li>
+</ol>
+
+
+<h2>为什么要写可读的代码</h2>
+
+<p>因为代码不仅要被机器运行，还要给人看。而且看的人还要仔细看，有时候浏览不下，还要全部理解，这才能找出其中的的逻辑漏洞，并作出相应的修改。相信大家在看到有些代码的时候，总是特别想骂人，换位思考一下，别人读我们写的代码的时候又如何。所以，代码要写的可读，为了这个社会更和谐和文明一些。</p>
+
+<h2>什么是可读的代码</h2>
+
+<p>让我引用书中的<strong>代码可读的终极原理 - The Fundamental Theorem of Readability</strong></p>
+
+<blockquote><p>Code should be written to minimize the time it would take for someone else to
+understand it.</p></blockquote>
+
+<p>很简单，就是<strong>让读代码的人花最少的时间和智力理解你写的代码</strong>。具体来说：</p>
+
+<ul>
+<li><strong>你不要在代码里炫耀你的智慧。</strong>起名弄的像猜谜，非要Google才能知道名字的意思。</li>
+<li><strong>你不要为了注释而注释。</strong>大学里教计算机的老师一直教育我们，代码一定要写注释，而且提交编程作业的时候，没有注释还要被扣分。于是，很多同学养成了写代码必写注释的好习惯。</li>
+<li><strong>你不要写巨长的方法和超多嵌套的循环。</strong>抽象懂不懂，无关的细节就抽象成里一个方法，让我们在同一个抽象层面思考。</li>
+</ul>
+
+
+<h2>命名的艺术</h2>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/%E4%B8%89%E8%AF%BBJava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/">三读java编程思想</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-06T00:00:00+08:00'><span class='date'>2014 年11 月6 日</span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>﻿又一次，或者准确地说，第三次读完了《Java编程思想》，合上书，我陷入沉思之中，这本书为什么值得我一而再，再而三地去读它呢？而且，似乎每遍重读，似乎总有些新的收获。我尽我所能来阐述其原因，希望在本文结束之时，我们共同拥有一个满意的答案。</p>
+
+<h2>为什么此书值得读？</h2>
+
+<p>为什么是这本书，而不是其他书呢？先卖个关子，中学的时候有一个奇怪的现象，有的老师，再听他讲课的时候，没觉得难，但是，听完之后，却发现已经把一个很难的问题在不知不觉之中搞明白了。现在想想，这其实就是大师的能力，他可以化繁为简，把复杂的问题用简单的语言解释清楚。而此书的作者Bruce Eckel就是当之无愧的大师，他拥有丰富的Java教学经验，又对Java有独到的见解，而且对Java的很多设计提出了问题和建议。此书独特的地方可以归结为以下几个方面：</p>
+
+<ol>
+<li><p><strong>每次一小步。</strong>每次只介绍一个知识点，在确保读者能够掌握之后，再介绍新的知识点。如此，读者理解起来更加容易，也更有成就感，同时也不会因为众多纠缠不清的知识点而迷惑，这就是此书中文版厚达880页的原因。</p></li>
+<li><p><strong>每个知识点都有对应的可编译执行的代码例子。</strong>读者可以自己运行，加深理解。当有疑问时，也可以通过修改代码，自我验证，在不知不觉中得到提高。</p></li>
+<li><p><strong>采用测试框架展示程序输出。</strong>有以下优点:</p>
+
+<ul>
+<li>培养读者对测试的重视，在实际工作中，很多初学者容易忽视测试的重要性。</li>
+<li>培养读者去写出可测试的代码，比如紧密耦合等，都会导致程序很难测试。</li>
+<li>培养读者如何写测试框架，这对工作中写单元测试和其他测试都很有帮助。</li>
+<li>要修改程序时，比如重构，可以通过测试框架来确保程序的正确性。</li>
+</ul>
+</li>
+<li><p><strong>示例中运用众多设计模式。</strong>关于设计模式的重要性，相信大家都知道，只是面向对象设计的基本功，结合实际的例子来学习，可以说是一举两得。有些功能，有很深入的探讨。比如泛型，通过与C++的对比，介绍了设计思路和优缺点。</p></li>
+</ol>
+
+
+<h2>为什么值得读3遍？</h2>
+
+<p>先介绍以下我读此书的经历：</p>
+
+<ol>
+<li>2010年初，购入此书第四版中文版。此前，在Stackoverflow，见多人推荐此书。
+半年时间，读第一遍，当然很多问题浅尝辄止，没有搞明白，总算是翻完了以便。最大的感受是，原来Java还有这么多我不知道的功能。</li>
+<li>2011年，工作之后，发现真正写代码的时候，很多都是一知半解。比如，容器和泛型应该怎么用，并发该怎么写，异常该如何处理，IO的框架是怎么回事。不过，总算知道这些东西的存在。又花了半年的时间，第二遍。这次，带着问题有目的性地把相应的章节仔细地重读了一遍。工作中的问题得到顺利解决了，但是好奇心没有得到充分的满足，很多东西不知道为什么要这么用。</li>
+<li>2012年初，购入此书第四版英文版。因为我认为翻译不可能没有信息损失，这些损失很可能使我不能正确理解作者要表达的意思。开始阅读第三遍，花了1年左右。这次可是说是咬文嚼字，很多不认识的单词还查了词典。读完第一章对象导论，我就大有收获。之前竟然没有发现这章如此之好，从哲学的对象到编程中的对象，对面向对象做了全面而准确的解释，读完之后，豁然开朗。之后，更是惊喜不断，尤其是异常那一章，对检查型异常的优缺点做了详细的论述，并提出了解决方案来克服检查型异常的缺点，让了理解了为什么这个功能只在Java中存在（在Python， C#中都没有检查型异常）</li>
+</ol>
+
+
+<h2>学习的过程</h2>
+
+<p>在Java Performance的开头，作者认为，要想成功地调优Java性能，你需要经历三个阶段：</p>
+
+<ol>
+<li><strong>我不知道我要知道什么。</strong>也就是说，在解决一个问题是，你不知道你需要知道什么知识和方法才能解决问题。</li>
+<li><strong>我知道我要知道什么。</strong>你知道你要了解哪些重要的东西才能解决问题，但是你还没有研究过那些重要内容的细节。</li>
+<li><strong>我已经知道了我需要知道的。</strong>简而言之，你了解并理解了所有的细节。</li>
+</ol>
+
+
+<p>我认为，还要加上一个阶段:</p>
+
+<ol>
+<li><strong>我质疑并改进我已经知道的。</strong>对于我所掌握的知识和细节，我会持怀疑的态度问自己，为什么要怎么做才能解决问题？怎么做有什么优缺点？有没有其他的方法，更好的方法？</li>
+</ol>
+
+
+<p>你会发现，我读《Java编程思想》的经历完整得重现这四个阶段：</p>
+
+<ol>
+<li><strong>未读之前</strong>，我不知道要知道什么才能用好Java。</li>
+<li><strong>一遍之后</strong>，我知道我要理解面向对象，异常，并发，泛型，IO等才能用好Java。</li>
+<li><strong>两遍之后</strong>，我理解了所有的技术细节。</li>
+<li><strong>三遍时，</strong>我开始评价并反思所有的技术细节，以及它们从何而来，为什么成为现在这样，以后又会去向何方。</li>
+</ol>
+
+
+<h2>结论</h2>
+
+<p>相信读者读到这里，应该已经能够理解我为什么读三遍《Java编程思想》。如果您读完此文，决定读一下《Java编程思想》；如果您读完此文，决定好书以后要读三遍，我知足矣。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/The%20Art%20Of%20Readable%20Code%20Notes/">The Art of Readable Code Notes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/%E4%B8%89%E8%AF%BBJava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/">三读java编程思想</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Warren Zhu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
